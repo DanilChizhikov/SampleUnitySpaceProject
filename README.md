@@ -90,5 +90,6 @@ This class is the parent of all other possible ship components, and it contains 
 
 ## GIF
 <center>
-<img src="https://s4.gifyu.com/images/2021-02-28_11-48-16.gif" alt="2021-02-28_11-48-16.gif" border="1" />
+<img src="https://i.ibb.co/rHv8sy3/2021-02-28-11-48-16.gif" alt="2021-02-28-11-48-16" border="01">
+<img src="https://i.ibb.co/WxgKvfp/2021-02-28-16-56-44.gif" alt="2021-02-28-16-56-44" border="1">
 </center>
