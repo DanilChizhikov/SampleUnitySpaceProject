@@ -1,12 +1,11 @@
 ﻿using Data.Script.Components;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Data.Script.Core.Ships
 {
-    public class Ship : BaseObject, IShip, IDamageShipAndComponent
+    public class Ship : BaseObject, IShip, IFly, IDamageShipAndComponent
     {
         [SerializeField] protected string nameShip;
         [SerializeField] protected float maxHealth;
@@ -27,6 +26,7 @@ namespace Data.Script.Core.Ships
         public ShieldComponent[] Shields { get => shields; set => shields = value; }
         public UnityEvent OnDestroedEvent { get => OnDestroed; set => OnDestroed = value; }
         public UnityEvent OnTakeDamageEvent { get => OnTakeDamage; set => OnTakeDamage = value; }
+        public float SpeedLimmited { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public virtual void InitializationShip()
         {
@@ -50,6 +50,24 @@ namespace Data.Script.Core.Ships
             currentHealth -= damage;
             OnTakeDamage?.Invoke();
             Destroed();
+        }
+
+        public void FlyXZ(Vector2 direction)
+        {
+            if (direction.sqrMagnitude < 0.1f) return;
+
+            Movement(new Vector3(direction.x, 0, direction.y));
+        }
+
+        public void Roll(float direction) => transform.Rotate(0, 0, direction);
+
+        public void FlyY(float direction) => Movement(new Vector3(0, direction, 0));
+
+        private void Movement(Vector3 vector)
+        {
+            float scaleMoveSpeed = currentSpeed * Time.deltaTime;
+            Vector3 move = Quaternion.Euler(0, transform.eulerAngles.y, 0) * new Vector3(vector.x, vector.y, vector.z);
+            transform.position += move * scaleMoveSpeed;
         }
     }
 }

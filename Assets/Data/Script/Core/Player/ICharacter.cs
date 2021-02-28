@@ -8,8 +8,5 @@ namespace Data.Script.Core.Player
     {
         string Name { get; set; }
         Ship CurrentShip { get; set; }
-        void Move(Vector2 direction);
-        void MoveUpDown(Axies axies);
-        void Roll(Axies axies);
     }
 }

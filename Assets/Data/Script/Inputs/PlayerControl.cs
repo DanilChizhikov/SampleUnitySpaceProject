@@ -24,39 +24,23 @@ namespace Data.Script.Core.Inputs
                     ""name"": ""Move"",
                     ""type"": ""Value"",
                     ""id"": ""ea8b1968-668a-4e27-9ccd-3ed3a19d81e6"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""RollRight"",
-                    ""type"": ""Button"",
-                    ""id"": ""1d784b37-a05f-47b3-bc3d-24b5bc90b22b"",
-                    ""expectedControlType"": ""Button"",
+                    ""name"": ""MoveY"",
+                    ""type"": ""Value"",
+                    ""id"": ""e488b105-e7a7-4ad9-8cd6-fa55567351b5"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""RollLeft"",
-                    ""type"": ""Button"",
-                    ""id"": ""4c128118-882d-486b-b113-ec0889cc026d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Down"",
-                    ""type"": ""Button"",
-                    ""id"": ""f23b5220-b726-4d17-9f3f-369b30c1f65c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Upping"",
-                    ""type"": ""Button"",
-                    ""id"": ""9c419ba3-e9ec-405e-8897-6358929d8b53"",
-                    ""expectedControlType"": ""Button"",
+                    ""name"": ""Roll"",
+                    ""type"": ""Value"",
+                    ""id"": ""644ec204-0c68-45b1-a230-18c687ed5946"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -156,48 +140,70 @@ namespace Data.Script.Core.Inputs
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""0a22f57d-7584-4edd-a6b8-2d20617e3019"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": ""Mouse and Keybord"",
-                    ""action"": ""Upping"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3f9c9699-dfee-4cda-8802-e3ece9c0b484"",
-                    ""path"": ""<Keyboard>/ctrl"",
+                    ""name"": ""QE"",
+                    ""id"": ""6208c222-b294-4ad8-9ede-82a296630694"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse and Keybord"",
-                    ""action"": ""Down"",
-                    ""isComposite"": false,
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""d31a5aec-5537-41b9-bdc6-d640a0f18350"",
+                    ""name"": ""positive"",
+                    ""id"": ""52f8e269-da8c-4e76-a34d-1f8cfb3053e6"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse and Keybord"",
-                    ""action"": ""RollLeft"",
+                    ""action"": ""Roll"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""1efb9481-0cbd-46c7-a589-bba95a7fe582"",
+                    ""name"": ""negative"",
+                    ""id"": ""9b263952-59bc-4eb9-bf25-86265eaf8f7c"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse and Keybord"",
-                    ""action"": ""RollRight"",
+                    ""action"": ""Roll"",
                     ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""CtrlSpace"",
+                    ""id"": ""f03f2065-c6c7-4121-9ccc-a3efbbc0aa89"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveY"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""10de0388-ac34-4aae-b907-8e7afa81543e"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keybord"",
+                    ""action"": ""MoveY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""4d7de5cb-b923-4829-b09d-ed40fe7d219d"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keybord"",
+                    ""action"": ""MoveY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -224,10 +230,8 @@ namespace Data.Script.Core.Inputs
             // Player
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-            m_Player_RollRight = m_Player.FindAction("RollRight", throwIfNotFound: true);
-            m_Player_RollLeft = m_Player.FindAction("RollLeft", throwIfNotFound: true);
-            m_Player_Down = m_Player.FindAction("Down", throwIfNotFound: true);
-            m_Player_Upping = m_Player.FindAction("Upping", throwIfNotFound: true);
+            m_Player_MoveY = m_Player.FindAction("MoveY", throwIfNotFound: true);
+            m_Player_Roll = m_Player.FindAction("Roll", throwIfNotFound: true);
             m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
             m_Player_Scan = m_Player.FindAction("Scan", throwIfNotFound: true);
         }
@@ -280,10 +284,8 @@ namespace Data.Script.Core.Inputs
         private readonly InputActionMap m_Player;
         private IPlayerActions m_PlayerActionsCallbackInterface;
         private readonly InputAction m_Player_Move;
-        private readonly InputAction m_Player_RollRight;
-        private readonly InputAction m_Player_RollLeft;
-        private readonly InputAction m_Player_Down;
-        private readonly InputAction m_Player_Upping;
+        private readonly InputAction m_Player_MoveY;
+        private readonly InputAction m_Player_Roll;
         private readonly InputAction m_Player_Shoot;
         private readonly InputAction m_Player_Scan;
         public struct PlayerActions
@@ -291,10 +293,8 @@ namespace Data.Script.Core.Inputs
             private @PlayerControl m_Wrapper;
             public PlayerActions(@PlayerControl wrapper) { m_Wrapper = wrapper; }
             public InputAction @Move => m_Wrapper.m_Player_Move;
-            public InputAction @RollRight => m_Wrapper.m_Player_RollRight;
-            public InputAction @RollLeft => m_Wrapper.m_Player_RollLeft;
-            public InputAction @Down => m_Wrapper.m_Player_Down;
-            public InputAction @Upping => m_Wrapper.m_Player_Upping;
+            public InputAction @MoveY => m_Wrapper.m_Player_MoveY;
+            public InputAction @Roll => m_Wrapper.m_Player_Roll;
             public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
             public InputAction @Scan => m_Wrapper.m_Player_Scan;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -309,18 +309,12 @@ namespace Data.Script.Core.Inputs
                     @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                     @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                     @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                    @RollRight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRollRight;
-                    @RollRight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRollRight;
-                    @RollRight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRollRight;
-                    @RollLeft.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRollLeft;
-                    @RollLeft.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRollLeft;
-                    @RollLeft.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRollLeft;
-                    @Down.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDown;
-                    @Down.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDown;
-                    @Down.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDown;
-                    @Upping.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpping;
-                    @Upping.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpping;
-                    @Upping.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpping;
+                    @MoveY.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveY;
+                    @MoveY.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveY;
+                    @MoveY.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveY;
+                    @Roll.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
+                    @Roll.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
+                    @Roll.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
                     @Shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
                     @Shoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
                     @Shoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
@@ -334,18 +328,12 @@ namespace Data.Script.Core.Inputs
                     @Move.started += instance.OnMove;
                     @Move.performed += instance.OnMove;
                     @Move.canceled += instance.OnMove;
-                    @RollRight.started += instance.OnRollRight;
-                    @RollRight.performed += instance.OnRollRight;
-                    @RollRight.canceled += instance.OnRollRight;
-                    @RollLeft.started += instance.OnRollLeft;
-                    @RollLeft.performed += instance.OnRollLeft;
-                    @RollLeft.canceled += instance.OnRollLeft;
-                    @Down.started += instance.OnDown;
-                    @Down.performed += instance.OnDown;
-                    @Down.canceled += instance.OnDown;
-                    @Upping.started += instance.OnUpping;
-                    @Upping.performed += instance.OnUpping;
-                    @Upping.canceled += instance.OnUpping;
+                    @MoveY.started += instance.OnMoveY;
+                    @MoveY.performed += instance.OnMoveY;
+                    @MoveY.canceled += instance.OnMoveY;
+                    @Roll.started += instance.OnRoll;
+                    @Roll.performed += instance.OnRoll;
+                    @Roll.canceled += instance.OnRoll;
                     @Shoot.started += instance.OnShoot;
                     @Shoot.performed += instance.OnShoot;
                     @Shoot.canceled += instance.OnShoot;
@@ -368,10 +356,8 @@ namespace Data.Script.Core.Inputs
         public interface IPlayerActions
         {
             void OnMove(InputAction.CallbackContext context);
-            void OnRollRight(InputAction.CallbackContext context);
-            void OnRollLeft(InputAction.CallbackContext context);
-            void OnDown(InputAction.CallbackContext context);
-            void OnUpping(InputAction.CallbackContext context);
+            void OnMoveY(InputAction.CallbackContext context);
+            void OnRoll(InputAction.CallbackContext context);
             void OnShoot(InputAction.CallbackContext context);
             void OnScan(InputAction.CallbackContext context);
         }
