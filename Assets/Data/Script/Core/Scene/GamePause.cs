@@ -15,14 +15,23 @@ namespace Data.Script.Core.Scene
 
         private void LateUpdate()
         {
-            if (InputManager.instance.GetEscape()) Pause();
+            if (InputManager.instance.GetEscape())
+            {
+                Pause();
+            }
         }
 
         public void Pause()
         {
             IsPaused = !IsPaused;
-            if (!IsPaused) Time.timeScale = 1f;
-            else Time.timeScale = 0f;
+            if (!IsPaused)
+            {
+                Time.timeScale = 1f;
+            }
+            else
+            {
+                Time.timeScale = 0f;
+            }
         }
     }
 }

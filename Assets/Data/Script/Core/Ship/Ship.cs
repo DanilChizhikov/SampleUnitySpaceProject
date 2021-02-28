@@ -34,7 +34,9 @@ namespace Data.Script.Core.Ships
             foreach (var shield in shields)
             {
                 if(shield.SizeComponent == classShip)
+                {
                     shield.InitializationComponent();
+                }
             }
         }
 
@@ -42,7 +44,9 @@ namespace Data.Script.Core.Ships
         {
             var health = Math.Round(currentHealth, 1);
             if (health <= 0.1f)
+            {
                 OnDestroed?.Invoke();
+            }
         }
 
         public void SetDamage(float damage)

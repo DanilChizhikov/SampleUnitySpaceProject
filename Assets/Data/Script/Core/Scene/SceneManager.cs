@@ -9,7 +9,7 @@ namespace Data.Script.Core.Scenes
     {
         [SerializeField] private TypeLoad type;
         private ObjectPool objectPool;
-        private bool isSceneWasLoaded = false;
+        private bool isSceneWasLoaded;
         [SerializeField] private ScenesBuilderDataPath builderDataPath;
         private IEnumerator initCorutine;
 

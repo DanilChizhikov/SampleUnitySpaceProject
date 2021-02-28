@@ -6,7 +6,7 @@ namespace Data.Script.Core.Scenes
 {
     public class SceneBuilder : Singleton<SceneBuilder>, ISceneBuilder
     {
-        public bool IsReady { get; set; } = false;
+        public bool IsReady { get; set; }
 
         public void BuildScenes(ScenesBuilderDataPath builderDataPath)
         {
@@ -17,7 +17,7 @@ namespace Data.Script.Core.Scenes
         {
             yield return new WaitForEndOfFrame();
 
-            GameObject[] instantObject = null;
+            GameObject[] instantObject;
             ObjectModel orguments;
 
             foreach(var path in builderDataPath.GetObjectsPath)

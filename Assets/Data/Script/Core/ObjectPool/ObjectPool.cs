@@ -19,28 +19,36 @@ namespace Data.Script.Core
         #region Setter
         public void SetBaseUpdater(IBaseUpdater updater)
         {
-            if (baseUpdaters.Contains(updater)) return;
-            baseUpdaters.Add(updater);
+            if (!baseUpdaters.Contains(updater))
+            {
+                baseUpdaters.Add(updater);
+            }
         }
 
         public void SetBaseUpdaters(IBaseUpdater[] updaters)
         {
             foreach (var updater in updaters)
+            {
                 SetBaseUpdater(updater);
+            }
         }
         #endregion
 
         #region Remove
         public void RemoveUpdater(IBaseUpdater updater)
         {
-            if (!baseUpdaters.Contains(updater)) return;
-            baseUpdaters.Remove(updater);
+            if (baseUpdaters.Contains(updater))
+            {
+                baseUpdaters.Remove(updater);
+            }
         }
 
         public void RemoveUpdaters(IBaseUpdater[] updaters)
         {
             foreach (var updater in updaters)
+            {
                 RemoveUpdater(updater);
+            }
         }
         #endregion
 
@@ -50,7 +58,10 @@ namespace Data.Script.Core
 
             var instant = GameObject.Instantiate(tempObject).AddComponent<T>();
 
-            if (objectModel.Parent) instant.transform.SetParent(objectModel.Parent);
+            if (objectModel.Parent)
+            {
+                instant.transform.SetParent(objectModel.Parent);
+            }
 
             instant.transform.position = objectModel.OptionsModel.Position;
             instant.transform.rotation = objectModel.OptionsModel.Rotation;
@@ -70,7 +81,10 @@ namespace Data.Script.Core
         {
             var newObject = GameObject.Instantiate(objectModel.Origin);
 
-            if (objectModel.Parent) newObject.transform.SetParent(objectModel.Parent);
+            if (objectModel.Parent)
+            {
+                newObject.transform.SetParent(objectModel.Parent);
+            }
 
             newObject.transform.position = objectModel.OptionsModel.Position;
             newObject.transform.rotation = objectModel.OptionsModel.Rotation;

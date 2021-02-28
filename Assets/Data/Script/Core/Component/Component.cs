@@ -25,7 +25,9 @@ namespace Data.Script.Core.Components
         {
             var health = Math.Round(currentHealth, 1);
             if (health <= 0.1f)
+            {
                 OnDestroed?.Invoke();
+            }
         }
 
         public virtual void InitializationComponent()
