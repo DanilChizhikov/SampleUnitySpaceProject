@@ -1,0 +1,94 @@
+# =============== # 
+# Unity generated # 
+# =============== # 
+Temp/ 
+Obj/ 
+UnityGenerated/ 
+Library/ 
+Build/ 
+Builds/ 
+/[Ll]ibrary/ 
+/[Tt]emp/ 
+/[Oo]bj/ 
+/[Bb]uild/ 
+/[Bb]uilds/ 
+Assets/AssetStoreTools* 
+
+# ===================================== # 
+# Visual Studio / MonoDevelop generated # 
+# ===================================== # 
+ExportedObj/ 
+*.svd 
+*.userprefs 
+*.csproj 
+*.pidb 
+*.suo 
+*.sln 
+*.user 
+*.unityproj 
+*.booproj 
+
+# ============ # 
+# OS generated # 
+# ============ # 
+.DS_Store 
+.DS_Store? 
+._* 
+.Spotlight-V100 
+.Trashes 
+Icon? 
+ehthumbs.db 
+Thumbs.db 
+
+*.lock
+
+
+# ������������� ��������������� ������ Jetbrains Rider 
+[ Aa ] ssets / ������� / �������� / JetBrains * 
+
+# ������� ���� Visual Studio 
+.vs/ 
+
+# ������� ����������� Gradle 
+.gradle/ 
+
+
+*.zip 
+*.7z 
+*.exe 
+*.rar 
+
+# ������ 
+*.apk 
+*.unitypackage 
+
+/.collabignore 
+*._
+
+# Save
+SaveSettings.json
+MyTest.bin
+input.settings
+SaveSettings.json.meta
+MyTest.bin.meta
+input.settings.meta
+
+#*.png
+#*.psd
+#*.fbx
+#*.wav
+#*.mp3
+#*.pdf
+#*.ogg
+#*.exr
+#*.tif
+#*.dll
+#*.tga
+#*.jpg
+#*.ttf
+#*.obj
+#*.blend
+#*.blend1
+#*.jpeg
+#*.gif
+#*.mp4
