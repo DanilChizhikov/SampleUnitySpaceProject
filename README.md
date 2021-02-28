@@ -1,7 +1,13 @@
 # Galactic Empire
-[![GitHub stars](https://img.shields.io/github/stars/DanilChizhikov/SampleUnitySpaceProject)](https://github.com/DanilChizhikov/SampleUnitySpaceProject/stargazers)
-<a href="https://unity.com">
-![IMG](https://img.shields.io/badge/Unity-2019.4.21f1-green)</a>
+<p align="center">
+<img src="https://i.ibb.co/6JDsG4v/logo.png" alt="logo" border="0">
+</p>
+
+<p align="center">
+<a href="https://travis-ci.org/DanilChizhikov/framework"><img src="https://travis-ci.org/DanilChizhikov/SampleUnitySpaceProject.svg" alt="Build Status"></a>
+<a href="https://github.com/DanilChizhikov/SampleUnitySpaceProject/stargazers"><img src="https://img.shields.io/github/stars/DanilChizhikov/SampleUnitySpaceProject" alt="GitHub stars"></a>
+<a href="https://unity.com"><img src="https://img.shields.io/badge/Unity-2019.4.21f1-green" alt="Unity Version"></a>
+</p>
 
 ## Description
 At the moment, there are already many different space simulators, the most popular are of course EliteDangerous and Star Citizen. But why not create your own, maybe not as big, but your own, with its own mechanics and logic.
@@ -89,7 +95,9 @@ This class is the parent of all other possible ship components, and it contains 
 - [Component.cs](https://github.com/DanilChizhikov/SampleUnitySpaceProject/blob/main/Assets/Data/Script/Core/Component/Component.cs)
 
 ## GIF
-<center>
-<img src="https://i.ibb.co/rHv8sy3/2021-02-28-11-48-16.gif" alt="2021-02-28-11-48-16" border="01">
-<img src="https://i.ibb.co/WxgKvfp/2021-02-28-16-56-44.gif" alt="2021-02-28-16-56-44" border="1">
-</center>
+<p align="center">
+  <img src="https://i.ibb.co/rHv8sy3/2021-02-28-11-48-16.gif" alt="2021-02-28-11-48-16" border="01">
+</p>
+<p align="center">
+  <img src="https://i.ibb.co/WxgKvfp/2021-02-28-16-56-44.gif" alt="2021-02-28-16-56-44" border="1">
+</p>
