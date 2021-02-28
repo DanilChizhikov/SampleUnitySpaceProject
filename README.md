@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-<a href="https://travis-ci.org/DanilChizhikov/framework"><img src="https://travis-ci.org/DanilChizhikov/SampleUnitySpaceProject.svg" alt="Build Status"></a>
+<a href="https://travis-ci.org/DanilChizhikov/SampleUnitySpaceProject"><img src="https://travis-ci.org/DanilChizhikov/SampleUnitySpaceProject.svg" alt="Build Status"></a>
 <a href="https://github.com/DanilChizhikov/SampleUnitySpaceProject/stargazers"><img src="https://img.shields.io/github/stars/DanilChizhikov/SampleUnitySpaceProject" alt="GitHub stars"></a>
 <a href="https://unity.com"><img src="https://img.shields.io/badge/Unity-2019.4.21f1-green" alt="Unity Version"></a>
 </p>
