@@ -16,10 +16,11 @@ namespace Data.Script.Core.Player
             var xzDirection = InputManager.instance.getMoveDirection;
             var yDirection = InputManager.instance.getMoveYDirection;
             var rollDirection = InputManager.instance.getRollDirection;
-
+            var delta = InputManager.instance.getDeltaDirection;
             currentShip.FlyXZ(xzDirection);
             currentShip.FlyY(yDirection);
             currentShip.Roll(rollDirection);
+            currentShip.Rotation(delta);
         }
     }
 }

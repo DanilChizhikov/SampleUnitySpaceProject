@@ -1,5 +1,6 @@
 ﻿using Data.Script.Components;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,10 +13,13 @@ namespace Data.Script.Core.Ships
         [SerializeField] protected float currentHealth;
         [SerializeField] protected float maxSpeed;
         [SerializeField] protected float currentSpeed;
+        [SerializeField] protected float rotationSpeed;
         [SerializeField] protected ClassShip classShip;
         [SerializeField] protected ShieldComponent[] shields;
         [SerializeField] protected UnityEvent OnDestroed;
         [SerializeField] protected UnityEvent OnTakeDamage;
+        private Vector2 _rotation;
+        [SerializeField] protected bool isInvertion;
 
         public string Name { get => nameShip; set => nameShip = value; }
         public float MaxHealth { get => maxHealth; set => maxHealth = value; }
@@ -58,20 +62,36 @@ namespace Data.Script.Core.Ships
 
         public void FlyXZ(Vector2 direction)
         {
-            if (direction.sqrMagnitude < 0.1f) return;
-
-            Movement(new Vector3(direction.x, 0, direction.y));
+            if (direction.sqrMagnitude > 0.1f)
+            {
+                float scaleMoveSpeed = currentSpeed * Time.deltaTime;
+                Vector3 move = Quaternion.Euler(0, transform.eulerAngles.y, 0) * new Vector3(direction.x, 0, direction.y);
+                transform.position += move * scaleMoveSpeed;
+            }
         }
 
-        public void Roll(float direction) => transform.Rotate(0, 0, direction);
+        public void Roll(float direction)
+        {
+            transform.Rotate(0, 0, direction, Space.Self);
+        }
 
-        public void FlyY(float direction) => Movement(new Vector3(0, direction, 0));
-
-        private void Movement(Vector3 vector)
+        public void FlyY(float direction)
         {
             float scaleMoveSpeed = currentSpeed * Time.deltaTime;
-            Vector3 move = Quaternion.Euler(0, transform.eulerAngles.y, 0) * new Vector3(vector.x, vector.y, vector.z);
-            transform.position += move * scaleMoveSpeed;
+            var translate = (Vector3.up * direction) * scaleMoveSpeed;
+
+            transform.Translate(translate);
+        }
+
+        public void Rotation(Vector2 delta)
+        {
+            if(delta.sqrMagnitude > 0.1f)
+            {
+                var scaledRotateSpeed = rotationSpeed * Time.deltaTime * delta;
+                scaledRotateSpeed.y = isInvertion ? scaledRotateSpeed.y : scaledRotateSpeed.y * -1;
+                var euler = new Vector3(scaledRotateSpeed.y, scaledRotateSpeed.x, 0);
+                transform.Rotate(euler);
+            }
         }
     }
 }

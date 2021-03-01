@@ -1,5 +1,4 @@
-﻿using Data.Script.Inputs;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Data.Script.Core.Ships
 {
@@ -10,7 +9,8 @@ namespace Data.Script.Core.Ships
         float SpeedLimmited { get; set; }
 
         void FlyXZ(Vector2 direction);
-        void Roll(float direction);
         void FlyY(float direction);
+        void Roll(float direction);
+        void Rotation(Vector2 delta);
     }
 }

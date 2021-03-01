@@ -59,6 +59,14 @@ namespace Data.Script.Core.Inputs
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""MouseMove"",
+                    ""type"": ""Value"",
+                    ""id"": ""6276c873-4cc5-4e45-bad8-934b16d9a4a6"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -204,6 +212,17 @@ namespace Data.Script.Core.Inputs
                     ""action"": ""MoveY"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""32f4c9ab-5693-4756-adb0-437949aa8e84"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keybord"",
+                    ""action"": ""MouseMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -234,6 +253,7 @@ namespace Data.Script.Core.Inputs
             m_Player_Roll = m_Player.FindAction("Roll", throwIfNotFound: true);
             m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
             m_Player_Scan = m_Player.FindAction("Scan", throwIfNotFound: true);
+            m_Player_MouseMove = m_Player.FindAction("MouseMove", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -288,6 +308,7 @@ namespace Data.Script.Core.Inputs
         private readonly InputAction m_Player_Roll;
         private readonly InputAction m_Player_Shoot;
         private readonly InputAction m_Player_Scan;
+        private readonly InputAction m_Player_MouseMove;
         public struct PlayerActions
         {
             private @PlayerControl m_Wrapper;
@@ -297,6 +318,7 @@ namespace Data.Script.Core.Inputs
             public InputAction @Roll => m_Wrapper.m_Player_Roll;
             public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
             public InputAction @Scan => m_Wrapper.m_Player_Scan;
+            public InputAction @MouseMove => m_Wrapper.m_Player_MouseMove;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -321,6 +343,9 @@ namespace Data.Script.Core.Inputs
                     @Scan.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScan;
                     @Scan.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScan;
                     @Scan.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScan;
+                    @MouseMove.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseMove;
+                    @MouseMove.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseMove;
+                    @MouseMove.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseMove;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -340,6 +365,9 @@ namespace Data.Script.Core.Inputs
                     @Scan.started += instance.OnScan;
                     @Scan.performed += instance.OnScan;
                     @Scan.canceled += instance.OnScan;
+                    @MouseMove.started += instance.OnMouseMove;
+                    @MouseMove.performed += instance.OnMouseMove;
+                    @MouseMove.canceled += instance.OnMouseMove;
                 }
             }
         }
@@ -360,6 +388,7 @@ namespace Data.Script.Core.Inputs
             void OnRoll(InputAction.CallbackContext context);
             void OnShoot(InputAction.CallbackContext context);
             void OnScan(InputAction.CallbackContext context);
+            void OnMouseMove(InputAction.CallbackContext context);
         }
     }
 }
