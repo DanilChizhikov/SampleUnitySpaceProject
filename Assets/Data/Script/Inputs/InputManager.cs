@@ -11,6 +11,7 @@ namespace Data.Script.Inputs
 
         public Vector2 getMoveDirection => inputs.Player.Move.ReadValue<Vector2>();
         public float getMoveYDirection => inputs.Player.MoveY.ReadValue<float>();
+        public Vector2 getDeltaDirection => inputs.Player.MouseMove.ReadValue<Vector2>();
         public float getRollDirection => inputs.Player.Roll.ReadValue<float>();
 
         public override void SingletoneAwake()

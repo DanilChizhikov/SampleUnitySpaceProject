@@ -44,6 +44,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "MouseMove",
+                    "type": "Value",
+                    "id": "6276c873-4cc5-4e45-bad8-934b16d9a4a6",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -189,6 +197,17 @@
                     "action": "MoveY",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "32f4c9ab-5693-4756-adb0-437949aa8e84",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse and Keybord",
+                    "action": "MouseMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
