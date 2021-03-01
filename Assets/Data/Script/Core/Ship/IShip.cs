@@ -9,7 +9,6 @@ namespace Data.Script.Core.Ships
         float MaxHealth { get; set; }
         float CurrentHealth { get; set; }
         ClassShip ShipClass { get; set; }
-        ShieldComponent[] Shields { get; set; }
 
         void InitializationShip();
     }

@@ -218,19 +218,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 382172310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2a498ba639246f4d9a779d7009e1f81, type: 3}
+  m_Script: {fileID: 11500000, guid: a9e58ae1230453a4b9281d2fe1cbf37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipTransform: {fileID: 4433942750380080}
-  nameShip: Glaver
-  maxHealth: 1000
+  nameShip: 
+  maxHealth: 0
   currentHealth: 0
-  maxSpeed: 1000
-  currentSpeed: 20
-  rotationSpeed: 50
+  maxSpeed: 0
+  currentSpeed: 0
+  accelerationForce: 0
+  brakingForce: 0
+  yawPitchSpeed: 0
   classShip: 0
-  shields:
-  - {fileID: 1692945341549359}
   OnDestroed:
     m_PersistentCalls:
       m_Calls: []
@@ -245,8 +244,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382172310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000010323828, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4433942750380080}
   m_Father: {fileID: 0}
@@ -262,6 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
+  - component: {fileID: 705507996}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -344,6 +344,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c639375078d9e874b9371cf551cb3dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameComponent: 
+  maxHealth: 0
+  currentHealth: 0
+  size: 0
+  OnDestroed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  coolDown: 0
+  overClock: 0
+  energyEequir: 0
+  grade: 0
+  classComponent: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,9 +551,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 3
   m_FollowOffset: {x: 0, y: 3, z: -12}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
+  m_XDamping: 0
+  m_YDamping: 0
+  m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -631,7 +658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161755812}
   m_LocalRotation: {x: 0.122183256, y: -0.000000004269366, z: 5.2558286e-10, w: 0.9925076}
-  m_LocalPosition: {x: -0.00000010323828, y: 3, z: -12}
+  m_LocalPosition: {x: 0, y: 3, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1158346701}
@@ -752,7 +779,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4959395172147546}
   - component: {fileID: 65861728540631630}
-  - component: {fileID: 1692945341549359}
   m_Layer: 0
   m_Name: Collider1
   m_TagString: Untagged
@@ -760,28 +786,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1692945341549359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1692945341549358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5ec987f7415a5846a67ed2701960344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameComponent: DubStoll
-  maxHealth: 2000
-  currentHealth: 0
-  size: 0
-  OnDestroed:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTakeDamage:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1753360373748116
 GameObject:
   m_ObjectHideFlags: 0

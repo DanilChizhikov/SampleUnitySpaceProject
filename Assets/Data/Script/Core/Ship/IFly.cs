@@ -7,10 +7,14 @@ namespace Data.Script.Core.Ships
         float MaxSpeed { get; set; }
         float CurrentSpeed { get; set; }
         float SpeedLimmited { get; set; }
+        float YawPitchSpeed { get; set; }
+        float AccelerationForce { get; set; }
+        float BrakingForce { get; set; }
 
         void FlyXZ(Vector2 direction);
         void FlyY(float direction);
         void Roll(float direction);
-        void Rotation(Vector2 delta);
+        void YawPitch(Vector2 delta);
+        void SpeedControll(Vector2 xzDirection, float yDirection);
     }
 }

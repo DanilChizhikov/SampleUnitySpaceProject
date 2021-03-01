@@ -1,6 +1,5 @@
-﻿using Data.Script.Components;
+﻿using Data.Script.Core.Scene;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,18 +7,18 @@ namespace Data.Script.Core.Ships
 {
     public class Ship : BaseObject, IShip, IFly, IDamageShipAndComponent
     {
-        [SerializeField] protected string nameShip;
-        [SerializeField] protected float maxHealth;
-        [SerializeField] protected float currentHealth;
-        [SerializeField] protected float maxSpeed;
-        [SerializeField] protected float currentSpeed;
-        [SerializeField] protected float rotationSpeed;
-        [SerializeField] protected ClassShip classShip;
-        [SerializeField] protected ShieldComponent[] shields;
-        [SerializeField] protected UnityEvent OnDestroed;
-        [SerializeField] protected UnityEvent OnTakeDamage;
-        private Vector2 _rotation;
-        [SerializeField] protected bool isInvertion;
+        [SerializeField] private string nameShip;
+        [SerializeField] private float maxHealth;
+        [SerializeField] private float currentHealth;
+        [SerializeField] private float maxSpeed;
+        [SerializeField] private float currentSpeed;
+        [SerializeField] private float accelerationForce;
+        [SerializeField] private float brakingForce;
+        [SerializeField] private float yawPitchSpeed;
+        [SerializeField] private ClassShip classShip;
+        [SerializeField] private UnityEvent OnDestroed;
+        [SerializeField] private UnityEvent OnTakeDamage;
+        private bool isInverse;
 
         public string Name { get => nameShip; set => nameShip = value; }
         public float MaxHealth { get => maxHealth; set => maxHealth = value; }
@@ -27,21 +26,22 @@ namespace Data.Script.Core.Ships
         public ClassShip ShipClass { get => classShip; set => classShip = value; }
         public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
         public float CurrentSpeed { get => currentSpeed; set => currentSpeed = value; }
-        public ShieldComponent[] Shields { get => shields; set => shields = value; }
+        public float YawPitchSpeed { get => yawPitchSpeed; set => yawPitchSpeed = value; }
+        public float AccelerationForce { get => accelerationForce; set => accelerationForce = value; }
+        public float BrakingForce { get => brakingForce; set => brakingForce = value; }
         public UnityEvent OnDestroedEvent { get => OnDestroed; set => OnDestroed = value; }
         public UnityEvent OnTakeDamageEvent { get => OnTakeDamage; set => OnTakeDamage = value; }
         public float SpeedLimmited { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
+        public override void BaseAwake()
+        {
+            InitializationShip();
+        }
+
+        #region IShip
         public virtual void InitializationShip()
         {
             currentHealth = maxHealth;
-            foreach (var shield in shields)
-            {
-                if(shield.SizeComponent == classShip)
-                {
-                    shield.InitializationComponent();
-                }
-            }
         }
 
         public void Destroed()
@@ -59,7 +59,9 @@ namespace Data.Script.Core.Ships
             OnTakeDamage?.Invoke();
             Destroed();
         }
+        #endregion
 
+        #region IFly
         public void FlyXZ(Vector2 direction)
         {
             if (direction.sqrMagnitude > 0.1f)
@@ -70,11 +72,6 @@ namespace Data.Script.Core.Ships
             }
         }
 
-        public void Roll(float direction)
-        {
-            transform.Rotate(0, 0, direction, Space.Self);
-        }
-
         public void FlyY(float direction)
         {
             float scaleMoveSpeed = currentSpeed * Time.deltaTime;
@@ -83,15 +80,36 @@ namespace Data.Script.Core.Ships
             transform.Translate(translate);
         }
 
-        public void Rotation(Vector2 delta)
+        public void Roll(float direction)
         {
-            if(delta.sqrMagnitude > 0.1f)
+            transform.Rotate(0, 0, direction, Space.Self);
+        }
+
+        public void YawPitch(Vector2 delta)
+        {
+            if (delta.sqrMagnitude > 0.1f)
             {
-                var scaledRotateSpeed = rotationSpeed * Time.deltaTime * delta;
-                scaledRotateSpeed.y = isInvertion ? scaledRotateSpeed.y : scaledRotateSpeed.y * -1;
+                var scaledRotateSpeed = yawPitchSpeed * Time.deltaTime * delta;
+                scaledRotateSpeed.y = isInverse ? scaledRotateSpeed.y : scaledRotateSpeed.y * -1;
                 var euler = new Vector3(scaledRotateSpeed.y, scaledRotateSpeed.x, 0);
                 transform.Rotate(euler);
             }
         }
+
+        public void SpeedControll(Vector2 xzDirection, float yDirection)
+        {
+            if (!GamePause.instance.IsPaused)
+            {
+                if (xzDirection.sqrMagnitude > 0.1f || yDirection != 0)
+                {
+                    currentSpeed = (currentSpeed < maxSpeed) ? currentSpeed + accelerationForce : maxSpeed;
+                }
+                else
+                {
+                    currentSpeed = (currentSpeed > 0) ? currentSpeed - brakingForce : 0;
+                }
+            }
+        }
+        #endregion
     }
 }

@@ -7,27 +7,23 @@ namespace Data.Script.Core.Components
 {
     public class Component : BaseObject, IComponent, IDamageShipAndComponent
     {
-        [SerializeField] protected string nameComponent;
-        [SerializeField] protected float maxHealth;
-        [SerializeField] protected float currentHealth;
-        [SerializeField] protected ClassShip size;
-        [SerializeField] protected UnityEvent OnDestroed;
-        [SerializeField] protected UnityEvent OnTakeDamage;
+        [SerializeField] private string nameComponent;
+        [SerializeField] private float maxHealth;
+        [SerializeField] private float currentHealth;
+        [SerializeField] private SizeComponent size;
+        [SerializeField] private UnityEvent OnDestroed;
+        [SerializeField] private UnityEvent OnTakeDamage;
 
         public string Name { get => nameComponent; set => nameComponent = value; }
         public float MaxHealth { get => maxHealth; set => maxHealth = value; }
         public float CurrentHealth { get => currentHealth; set => currentHealth = value; }
-        public ClassShip SizeComponent { get => size; set => size = value; }
         public UnityEvent OnDestroedEvent { get => OnDestroed; set => OnDestroed = value; }
         public UnityEvent OnTakeDamageEvent { get => OnTakeDamage; set => OnTakeDamage = value; }
+        public SizeComponent ComponentSize { get => size; set => size = value; }
 
-        public void Destroed()
+        public override void BaseAwake()
         {
-            var health = Math.Round(currentHealth, 1);
-            if (health <= 0.1f)
-            {
-                OnDestroed?.Invoke();
-            }
+            InitializationComponent();
         }
 
         public virtual void InitializationComponent()
@@ -40,6 +36,15 @@ namespace Data.Script.Core.Components
             currentHealth -= damage;
             OnTakeDamage?.Invoke();
             Destroed();
+        }
+
+        public void Destroed()
+        {
+            var health = Math.Round(currentHealth, 1);
+            if (health <= 0.1f)
+            {
+                OnDestroed?.Invoke();
+            }
         }
     }
 }
