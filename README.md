@@ -1,4 +1,6 @@
 # Galactic Empire
+[English](README.md)
+[Русский](README_RU.md)
 <p align="center">
 <img src="https://i.ibb.co/6JDsG4v/logo.png" alt="logo" border="0">
 </p>
