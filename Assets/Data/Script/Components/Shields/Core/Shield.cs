@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Data.Script.Components.Shields.Core
 {
-    public class Shield : Data.Script.Core.Components.Component, IShield
+    public class Shield : Script.Core.Components.Component, IShield
     {
         [SerializeField] private float coolDown;
         [SerializeField] private float overClock;
@@ -13,8 +13,8 @@ namespace Data.Script.Components.Shields.Core
 
         public GradeComponent ComponentGrade { get => grade; set => grade = value; }
         public ClassComponent ComponentClass { get => classComponent; set => classComponent = value; }
-        public float CoolDown { get; set; }
-        public float OverClock { get; set; }
-        public float EnergyEequir { get; set; }
+        public float CoolDown { get => coolDown; set => coolDown = value; }
+        public float OverClock { get => overClock; set => overClock = value; }
+        public float EnergyEequir { get => energyEequir; set => energyEequir = value; }
     }
 }

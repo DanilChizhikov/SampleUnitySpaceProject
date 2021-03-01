@@ -21,11 +21,6 @@ namespace Data.Script.Core.Components
         public UnityEvent OnTakeDamageEvent { get => OnTakeDamage; set => OnTakeDamage = value; }
         public SizeComponent ComponentSize { get => size; set => size = value; }
 
-        public override void BaseAwake()
-        {
-            InitializationComponent();
-        }
-
         public virtual void InitializationComponent()
         {
             currentHealth = maxHealth;

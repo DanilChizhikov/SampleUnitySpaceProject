@@ -236,6 +236,9 @@ MonoBehaviour:
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
+  shields:
+  - {fileID: 1692945341549359}
+  maxSizeComponent: 0
 --- !u!4 &382172312
 Transform:
   m_ObjectHideFlags: 0
@@ -779,6 +782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4959395172147546}
   - component: {fileID: 65861728540631630}
+  - component: {fileID: 1692945341549359}
   m_Layer: 0
   m_Name: Collider1
   m_TagString: Untagged
@@ -786,6 +790,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1692945341549359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692945341549358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80050f32fb77ef1438c70668999b3d0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameComponent: 
+  maxHealth: 0
+  currentHealth: 0
+  size: 0
+  OnDestroed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  coolDown: 0
+  overClock: 0
+  energyEequir: 0
+  grade: 0
+  classComponent: 0
 --- !u!1 &1753360373748116
 GameObject:
   m_ObjectHideFlags: 0
