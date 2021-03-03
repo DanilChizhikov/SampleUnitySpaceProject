@@ -97,6 +97,11 @@ This class is the parent of all other possible ship components, and it contains 
 - [Component.cs](https://github.com/DanilChizhikov/SampleUnitySpaceProject/blob/main/Assets/Data/Script/Core/Component/Component.cs)
 
 ## GIF
+<h2>Fly Model</h2>
 <p align="center">
   <img src="https://i.ibb.co/1MC7vPy/2021-03-01-21-38-35.gif" alt="FlyModel" border="01">
+</p>
+<h2>First PowerPlant</h2>
+<p align="center">
+<img src="https://i.ibb.co/RyWw7Gz/Power-Plant.gif" alt="Power-Plant" border="1">
 </p>

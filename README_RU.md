@@ -95,6 +95,11 @@ BaseObject - это абстракция от стандартного MonoBehav
 - [Component.cs](https://github.com/DanilChizhikov/SampleUnitySpaceProject/blob/main/Assets/Data/Script/Core/Component/Component.cs)
 
 ## GIF
+<h2>Летная модель</h2>
 <p align="center">
   <img src="https://i.ibb.co/1MC7vPy/2021-03-01-21-38-35.gif" alt="FlyModel" border="01">
+</p>
+<h2>Первый аккумулятор</h2>
+<p align="center">
+<img src="https://i.ibb.co/RyWw7Gz/Power-Plant.gif" alt="Power-Plant" border="1">
 </p>
