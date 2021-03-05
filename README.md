@@ -105,3 +105,7 @@ This class is the parent of all other possible ship components, and it contains 
 <p align="center">
 <img src="https://i.ibb.co/RyWw7Gz/Power-Plant.gif" alt="Power-Plant" border="1">
 </p>
+<h2>First Shield Generator</h2>
+<p align="center">
+<img src="https://i.ibb.co/559s7zC/2021-03-05-18-27-49.gif" alt="Shield Generator" border="1">
+</p>
