@@ -105,5 +105,5 @@ BaseObject - это абстракция от стандартного MonoBehav
 </p>
 <h2>Первый генератор щитов</h2>
 <p align="center">
-<img src="https://i.ibb.co/559s7zC/2021-03-05-18-27-49.gif" alt="Shield Generator" border="1">
+<img src="https://i.ibb.co/NTk5dQ9/Shield-Generator.gif" alt="Shield Generator" border="1">
 </p>
