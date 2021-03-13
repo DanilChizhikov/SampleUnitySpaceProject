@@ -109,3 +109,7 @@ This class is the parent of all other possible ship components, and it contains 
 <p align="center">
 <img src="https://i.ibb.co/NTk5dQ9/Shield-Generator.gif" alt="Shield Generator" border="1">
 </p>
+<h2>First Quantom Drive</h2>
+<p align="center">
+<img src="https://i.ibb.co/gTvwGkQ/QDrive.gif" alt="QDrive" border="1">
+</p>
